@@ -3,27 +3,27 @@ local text = msg.content_.text_
 if ChatType == 'sp' or ChatType == 'gp'  then
 if not DevAbs:get(Antak..'Abs:Lock:Reply'..msg.chat_id_) then
 if text == "انجب" or text == "نجب" or text == "انجبي" or text == "نجبي" or text == "انجبو" or text == "نجبو" then
-if SudoId(msg) then
+if SudoId(msg.sender_user_id_) then
 rd = 'مطوريي اغلط شكد متريد نورتنه ، ♥️💪🏿'
-elseif SudoBot(msg) then
+elseif SudoBot(msg.sender_user_id_) then
 rd = 'احترم نفسكك لا عبالكك رافعيك مطور ، 🖕🏿♥️'
-elseif ManagerAll(msg) then
+elseif ManagerAll(msg.sender_user_id_) then
 rd = 'حبيبي راح اسامحكك لان مدير وع راسي ، 🖐🏿♥️'
-elseif AdminAll(msg) then
+elseif AdminAll(msg.sender_user_id_) then
 rd = 'راح اسامحكك هلمره لانك ادمن ، ☝🏿♥️'
-elseif VipAll(msg) then
+elseif VipAll(msg.sender_user_id_) then
 rd = 'راح احترمكك تره بس هلمره لانك مميز عندي ، ☝🏿♥️'
-elseif AbsConstructor(msg) then
+elseif AbsConstructor(msg.sender_user_id_, msg.chat_id_) then
 rd = 'تاج راسيي غير انت منشئ المجموعه ،🖐🏿♥️'
-elseif Constructor(msg) then
+elseif Constructor(msg.sender_user_id_, msg.chat_id_) then
 rd = 'تاج راسيي انت المنشئ الاساسي ،🖐🏿♥️'
-elseif BasicConstructor(msg) then
+elseif BasicConstructor(msg.sender_user_id_, msg.chat_id_) then
 rd = 'حبيبي المنشئ استقبلها منكك ،👍🏿♥️'
-elseif Manager(msg) then
+elseif Manager(msg.sender_user_id_, msg.chat_id_) then
 rd = 'حبيبي راح اسامحكك لان مدير وع راسي ، 🖐🏿♥️'
-elseif Admin(msg) then
+elseif Admin(msg.sender_user_id_, msg.chat_id_) then
 rd = 'راح اسامحكك هلمره لانك ادمن ، ☝🏿♥️'
-elseif VipMem(msg) then
+elseif VipMem(msg.sender_user_id_, msg.chat_id_) then
 rd = 'راح احترمكك تره بس هلمره لانك مميز عندي ، ☝🏿♥️'
 else
 rd = 'لكك هوه انت عضو وجاي تغلط ؟، 🖕🏿♥️'
@@ -92,31 +92,32 @@ AntakTeam =  "ڪوولُِ مآڪوولُِ لُِآحٍدِ 𖠙 😉♥️"
 Dev_Abs(msg.chat_id_, msg.id_, 1, AntakTeam, 1, 'md')
 return false
 end
-if text == 'فرخ' or text == 'فرخه' then
+if text == 'فرخ' then
 AntakTeam =  "ٰوينۨہهۂَ خۡل احۡصرهۂَ 𖠙 😹♥️" 
 Dev_Abs(msg.chat_id_, msg.id_, 1, AntakTeam, 1, 'md') 
 return false
 end
-if text == 'سورس ريو' or text == 'سورس ديفد' or text == 'سورس ديفد' or text == 'سورس زربه' or text == 'السورس زربه' or text == 'سورس عاوي' or text == 'السورس عاوي' then 
+if text == 'سورس عبس' or text == 'سورس بروكس' or text == 'سورس ديف بروكس' or text == 'سورس زربه' or text == 'السورس زربه' or text == 'سورس عاوي' or text == 'السورس عاوي' then 
 AntakTeam =  "لُِآ سوورس خآلُِتڪ دِي لُِڪ 𖠙 😒🔪" 
 Dev_Abs(msg.chat_id_, msg.id_, 1, AntakTeam, 1, 'md')
 return false
 end
 end
+
 if Manager(msg) then
 if text == 'تفعيل ردود البوت' or text == 'تفعيل الردود' then
 if not DevAbs:get(Antak..'Abs:Lock:Reply'..msg.chat_id_) then
-Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙ردود البوت بالتاكيد مفعله ', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙ردود البوت بالتاكيد مفعله ', 1, 'md')
 else
-Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙تم تفعيل ردود البوت', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙تم تفعيل ردود البوت', 1, 'md')
 DevAbs:del(Antak..'Abs:Lock:Reply'..msg.chat_id_)
 end end
 if text == 'تعطيل ردود البوت' or text == 'تعطيل الردود' then
 if DevAbs:get(Antak..'Abs:Lock:Reply'..msg.chat_id_) then
-Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙ردود البوت بالتاكيد معطله ', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙ردود البوت بالتاكيد معطله ', 1, 'md')
 else
 DevAbs:set(Antak..'Abs:Lock:Reply'..msg.chat_id_,true)
-Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙تم تعطيل ردود البوت', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙تم تعطيل ردود البوت', 1, 'md')
 end end
 end
 end
