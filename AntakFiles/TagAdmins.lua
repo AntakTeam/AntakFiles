@@ -4,7 +4,7 @@ if ChatType == 'sp' or ChatType == 'gp'  then
 if Manager(msg) then
 if text == "admin" or text == "@admin" then
 if DevAbs:get(Antak.."Abs:TagAdmins:Time"..msg.chat_id_..':'..msg.sender_user_id_) then  
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙انتظر دقيقه بعد ارسال الامر', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙انتظر دقيقه بعد ارسال الامر', 1, 'md')
 return false  
 end
 DevAbs:setex(Antak..'Abs:TagAdmins:Time'..msg.chat_id_..':'..msg.sender_user_id_,300,true)
