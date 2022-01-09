@@ -442,8 +442,6 @@ send(msg.chat_id_, msg.id_,'['..TextReply..']')
 return false
 end
 end
-
-
 if Manager(msg) then
 if text == 'تفعيل ردود البوت' or text == 'تفعيل الردود' then
 if not DevAbs:get(Antak..'Abs:Lock:Reply'..msg.chat_id_) then
