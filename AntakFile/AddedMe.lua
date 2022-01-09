@@ -1,40 +1,40 @@
-local function AddedMe(msg)
+local function AddMe(msg)
 local text = msg.content_.text_
-if ChatType == 'sp' or ChatType == 'gp'  then
-if text and text:match("منو ضافني") then
-if not DevAbs:get(Antak..'Abs:Added:Me'..msg.chat_id_) then
-tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
-if da and da.status_.ID == "ChatMemberStatusCreator" then
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙انت منشئ المجموعه', 1, 'md') 
+if text == 'تفعيل ضافني' and Owner(msg) then   
+database:del(bot_id..'Antak:Lock:Added:Me'..msg.chat_id_)  
+send(msg.chat_id_, msg.id_,'☑┇تم تفعيل امر منو ضافني') 
 return false
 end
-local Added_Me = DevAbs:get(Antak.."Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
+if text == 'تعطيل ضافني' and Owner(msg) then  
+database:set(bot_id..'Antak:Lock:Added:Me'..msg.chat_id_,true)  
+send(msg.chat_id_, msg.id_,'☑┇تم تعطيل امر منو ضافني') 
+return false
+end
+
+if text and text:match("(.*)(ضافني)(.*)") then
+if not database:get(bot_id..'Antak:Lock:Added:Me'..msg.chat_id_) then
+tdcli_function ({ID = "GetChatMember",chat_id_ = msg.chat_id_,user_id_ = msg.sender_user_id_},function(arg,da) 
+if da and da.status_.ID == "ChatMemberStatusCreator" then
+send(msg.chat_id_, msg.id_,'📛┇انت منشئ المجموعه ') 
+return false
+end
+local Added_Me = database:get(bot_id.."Antak:Who:Added:Me"..msg.chat_id_..':'..msg.sender_user_id_)
 if Added_Me then 
 tdcli_function ({ID = "GetUser",user_id_ = Added_Me},function(extra,result,success)
 local Name = '['..result.first_name_..'](tg://user?id='..result.id_..')'
-Text = '⌁︙*الشخص الذي قام باضافتك هو* ↫ '..Name
-SendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
+Text = '👤┇الشخص الذي قام باضافتك هو » '..Name
+sendText(msg.chat_id_,Text,msg.id_/2097152/0.5,'md')
 end,nil)
 else
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙انت دخلت عبر الرابط', 1, 'md') 
+send(msg.chat_id_, msg.id_,'🔰┇انت دخلت عبر الرابط') 
 end
 end,nil)
 else
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙امر منو ضافني تم تعطيله من قبل المدراء', 1, 'md') 
+send(msg.chat_id_, msg.id_,'⚠┇امر منو ضافني تم تعطيله من قبل المدراء ') 
 end
 end
 
-if text == 'تفعيل ضافني' and Manager(msg) then 
-DevAbs:del(Antak..'Abs:Added:Me'..msg.chat_id_) 
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙تم تفعيل امر منو ضافني', 1, 'md') 
-end
-if text == 'تعطيل ضافني' and Manager(msg) then 
-DevAbs:set(Antak..'Abs:Added:Me'..msg.chat_id_,true) 
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙تم تعطيل امر منو ضافني', 1, 'md') 
-end
-end
+
 
 end
-return {
-Antak = AddedMe
-}
+return {Antak = AddMe}
