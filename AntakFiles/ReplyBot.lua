@@ -107,17 +107,17 @@ end
 if Manager(msg) then
 if text == 'تفعيل ردود البوت' or text == 'تفعيل الردود' then
 if not DevAbs:get(Antak..'Abs:Lock:Reply'..msg.chat_id_) then
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙ردود البوت بالتاكيد مفعله ', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙ردود البوت بالتاكيد مفعله ', 1, 'md')
 else
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙تم تفعيل ردود البوت', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙تم تفعيل ردود البوت', 1, 'md')
 DevAbs:del(Antak..'Abs:Lock:Reply'..msg.chat_id_)
 end end
 if text == 'تعطيل ردود البوت' or text == 'تعطيل الردود' then
 if DevAbs:get(Antak..'Abs:Lock:Reply'..msg.chat_id_) then
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙ردود البوت بالتاكيد معطله ', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙ردود البوت بالتاكيد معطله ', 1, 'md')
 else
 DevAbs:set(Antak..'Abs:Lock:Reply'..msg.chat_id_,true)
-Dev_Abs(msg.chat_id_, msg.id_, 1, '⌁︙تم تعطيل ردود البوت', 1, 'md')
+Dev_Abs(msg.chat_id_, msg.id_, 1, '✯︙تم تعطيل ردود البوت', 1, 'md')
 end end
 end
 end
