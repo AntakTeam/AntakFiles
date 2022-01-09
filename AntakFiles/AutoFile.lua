@@ -2,11 +2,11 @@ local function AutoFile(msg)
 local text = msg.content_.text_
 if Sudo(msg) then
 if text == 'تفعيل النسخه التلقائيه' or text == 'تفعيل جلب نسخه الكروبات' or text == 'تفعيل عمل نسخه للمجموعات' then   
-Dev_Abs(msg.chat_id_,msg.id_, 1, "⌁︙تم تفعيل جلب نسخة الكروبات التلقائيه\n⌁︙سيتم ارسال نسخه تلقائيه للكروبات كل يوم الى خاص المطور الاساسي", 1, 'md')
+Dev_Abs(msg.chat_id_,msg.id_, 1, "✯︙تم تفعيل جلب نسخة الكروبات التلقائيه\n✯︙سيتم ارسال نسخه تلقائيه للكروبات كل يوم الى خاص المطور الاساسي", 1, 'md')
 DevAbs:del(Antak.."Abs:Lock:AutoFile")
 end
 if text == 'تعطيل النسخه التلقائيه' or text == 'تعطيل جلب نسخه الكروبات' or text == 'تعطيل عمل نسخه للمجموعات' then  
-Dev_Abs(msg.chat_id_,msg.id_, 1, "⌁︙تم تعطيل جلب نسخة الكروبات التلقائيه", 1, 'md')
+Dev_Abs(msg.chat_id_,msg.id_, 1, "✯︙تم تعطيل جلب نسخة الكروبات التلقائيه", 1, 'md')
 DevAbs:set(Antak.."Abs:Lock:AutoFile",true) 
 end 
 end
@@ -108,7 +108,7 @@ local File = io.open('./'..Antak..'.json', "w")
 File:write(GetJson)
 File:close()
 local abbas = 'https://api.telegram.org/bot' .. TokenBot .. '/sendDocument'
-local curl = 'curl "' .. abbas .. '" -F "chat_id='..DevId..'" -F "document=@'..Antak..'.json' .. '" -F "caption=⌁︙يحتوي الملف على ↫ '..#list..' مجموعه"'
+local curl = 'curl "' .. abbas .. '" -F "chat_id='..DevId..'" -F "document=@'..Antak..'.json' .. '" -F "caption=✯︙يحتوي الملف على ↫ '..#list..' مجموعه"'
 io.popen(curl)
 io.popen('fm -fr '..Antak..'.json')
 DevAbs:set(Antak.."Abs:AutoFile:Time",os.date("%x"))
