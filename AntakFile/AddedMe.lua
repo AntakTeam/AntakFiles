@@ -33,4 +33,4 @@ send(msg.chat_id_, msg.id_,'• : امر منو ضافني تم تعطيله م�
 end
 end
 end
-return {Antak = AddMe}
+return {= AddMe}
